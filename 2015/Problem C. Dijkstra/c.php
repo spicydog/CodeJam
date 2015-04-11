@@ -1,6 +1,6 @@
 <?php
-
-define('FILENAME','C-small-attempt2');
+ini_set('memory_limit','256M');
+define('FILENAME','C-large');
 
 
 define('FILE_IN',FILENAME.'.in');
@@ -74,7 +74,7 @@ function isDijkstra($str,$repeat) {
     if($lastResult!='') {
       if($lastResult==$result) {
         $sameResultCount++;
-        if($sameResultCount>100) {
+        if($sameResultCount>10) {
           break;
         }
       }
