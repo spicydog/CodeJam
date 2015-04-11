@@ -49,8 +49,18 @@ function isDijkstra($str,$repeat) {
   $init = 0;
   $diff = 0;
 
+
+  $lastResult = '';
+  $sameResultCount = 0;
   for($i=1;$i<=$repeat;$i++) {
-    $isFound = checkDijkstra($str,$i);
+
+    $result = getDijkstra($str,$i);
+
+    $isFound = false;
+    if($result=='ijk') {
+      $isFound = true;
+    }
+
     if($isFound) {
       if($init==0) {
         $init = $i;
@@ -59,6 +69,19 @@ function isDijkstra($str,$repeat) {
         break;
       }
     }
+
+
+    if($lastResult!='') {
+      if($lastResult==$result) {
+        $sameResultCount++;
+        if($sameResultCount>100) {
+          break;
+        }
+      }
+    } else {
+      $lastResult = $result;
+    }
+
   }
 
   if($init>0 && $diff==0 && $repeat==$init) {
@@ -76,7 +99,7 @@ function isDijkstra($str,$repeat) {
 
 
 
-function checkDijkstra($str,$repeat) {
+function getDijkstra($str,$repeat) {
 
   $lastChar = $str[0];
   $passCheckChar = false;
@@ -118,8 +141,7 @@ function checkDijkstra($str,$repeat) {
     }
   }
 
-
-  return $str == 'ijk';
+  return $str;
 
 }
 
