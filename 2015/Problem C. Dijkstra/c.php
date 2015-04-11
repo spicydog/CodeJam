@@ -1,6 +1,6 @@
 <?php
 
-define('FILENAME','C-small-attempt1');
+define('FILENAME','C-small-attempt2');
 
 
 define('FILE_IN',FILENAME.'.in');
@@ -66,8 +66,7 @@ function isDijkstra($str,$repeat) {
     return true;
   } else if($init>0 && $diff>0) {
     // Found via calculation
-    return true;
-    // return ($repeat - $init) % $diff == 0;
+    return ($repeat - $init) % $diff == 0;
   } else {
     // Not found
     return false;
