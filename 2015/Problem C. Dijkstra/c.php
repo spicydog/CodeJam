@@ -1,6 +1,6 @@
 <?php
 
-define('FILENAME','C-small-attempt0');
+define('FILENAME','C-small-attempt1');
 
 
 define('FILE_IN',FILENAME.'.in');
@@ -36,7 +36,7 @@ for ($i=1; $i <= $nLine*2; $i++) {
   $repeat = $row[1];
   $str = $lines[++$i];
 
-  echo $print = $i  . 'Case #'.($i/2).': ' . (isDijkstra($str,$repeat)? 'YES' : 'NO') . "\n";
+  echo $print = 'Case #'.($i/2).': ' . (isDijkstra($str,$repeat)? 'YES' : 'NO') . "\n";
   $output .= $print;
 
 }
@@ -63,15 +63,13 @@ function isDijkstra($str,$repeat) {
 
   if($init>0 && $diff==0 && $repeat==$init) {
     // Exact found
-    echo "1\n";
     return true;
   } else if($init>0 && $diff>0) {
     // Found via calculation
-    echo "2\n";
     return true;
+    // return ($repeat - $init) % $diff == 0;
   } else {
     // Not found
-    echo "0\n";
     return false;
   }
 }
@@ -88,6 +86,7 @@ function checkDijkstra($str,$repeat) {
       $passCheckChar = true;
     }
   }
+
   if(!$passCheckChar) {
     return false;
   }
