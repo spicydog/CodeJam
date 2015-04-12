@@ -1,7 +1,7 @@
 <?php
 
 
-define('FILENAME','C-large');
+define('FILENAME','C-large-practice');
 
 
 define('FILE_IN',FILENAME.'.in');
